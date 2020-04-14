@@ -1,19 +1,19 @@
-#lichess Backup Utility
+# lichess Backup Utility
 
 TL;DR The program ```backup_studies_as_pgn_files.py``` can be used to archive [Lichess](https://lichess.org/) studies.
 
-##Why
+## Why
 
 [Lichess](https://lichess.org/) allows users to create studies. These studies are divided into chapters. These chapters
 must be backed up periodically by the user to ensure in the event of a loss that they may be restored.
 
 Example Study: [Rook And Pawn Endgames: Introduction](https://lichess.org/study/dqCpuvFS)
 
-##What
+## What
 
 This code is responsible for calling their internal [API](https://lichess.org/api) to collect all chapters of a study from a provided HTML input. The HTML is extracted from a browser manually by a user before execution. The Lichess site leverages an infinite scroll class that makes pure web scraping not possible without a makeshift browser such as Selenium.
 
-##How
+## How
 * Go to the [Lichess Studies Section](https://lichess.org/study/by/jomega)
 * Scroll to the bottom such that all studies available are displayed (click the ellipse at the bottom if it appears)
 * Using your specific browser function, select all HTML code used to render the page.
@@ -22,10 +22,10 @@ This code is responsible for calling their internal [API](https://lichess.org/ap
 * Execute the ```backup_studies_as_pgn_files.py``` with no arguments required
 
 # Running 
-##Prerequisites
+## Prerequisites
 This is Python 3 code. Install Python and configure a virtual environment using the provided ```requirements.txt``` file. Try running the ```test.py``` to validate all requirements are met and execution is good to go. 
  
-##Output
+## Output
 **CONSOLE**
 ```bash
 (1/104): COMPLETED capture for study ac6JRqJk
@@ -82,6 +82,6 @@ https://lichess.org/study/otqEtXkg }
 ...
 ```
 
-#TODO
+# TODO
 
 * Implement Selenium to avoid HTML manual copy hassle
