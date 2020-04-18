@@ -32,9 +32,9 @@ def fetch_pgn(study_id, max_tries=2):
     study_contents = '<FAILED TO FETCH CONTENT>'
     for retry in range(max_tries):
         try:
+            time.sleep(3)  # Lichess rate limits API calls. Set a small delay to avoid getting blocked.
             with urllib.request.urlopen('https://lichess.org/study/' + study_id + '.pgn') as response:
                 study_contents = response.read().decode("utf-8")
-                time.sleep(3)  # Lichess rate limits API calls. Set a small delay to avoid getting blocked.
         except Exception as e:
             print('RETRYING for study capture: ' + str(study_name))
             continue
