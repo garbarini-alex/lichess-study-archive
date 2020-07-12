@@ -33,7 +33,7 @@ def write_to_file(file_path, data, write_type):
     :return: None
     """
     try:
-        f = open('./out/' + str(file_path), write_type, encoding="utf-8")
+        f = open(str(file_path), write_type, encoding="utf-8")
         f.write(data)
         f.close()
     except Exception as e:
@@ -116,5 +116,5 @@ if __name__ == "__main__":
         alphanumeric_filter = filter(str.isalnum, title)
         title_alphanumeric_string = "".join(alphanumeric_filter)
 
-        write_to_file('manifest.csv', str(i) + ',' + str(study_name) + ',' + title_alphanumeric_string + ',' + str(title) + '\n', 'a')
+        write_to_file(download_directory+'\\manifest.csv', str(i) + ',' + str(study_name) + ',' + title_alphanumeric_string + ',' + str(title) + '\n', 'a')
         fetch_pgn(study_name, driver)
