@@ -11,32 +11,30 @@ Example Study: [Rook And Pawn Endgames: Introduction](https://lichess.org/study/
 
 ## What
 
-This code is responsible for calling their internal [API](https://lichess.org/api) to collect all chapters of a study from a provided HTML input. The HTML is extracted from a browser manually by a user before execution. The Lichess site leverages an infinite scroll class that makes pure web scraping not possible without a makeshift browser such as Selenium.
+This code is responsible for collecting all chapters of a study from a provided HTML input. The Lichess site leverages an infinite scroll class that makes pure web scraping not possible without a makeshift browser such as Selenium. Hence, the code uses FireFox via Selenium to launch a browser, login, scroll to the bottom of the study page, and then download for each study.
 
 ## How
-* Go to the [Lichess Studies Section](https://lichess.org/study/by/jomega)
-* Scroll to the bottom such that all studies available are displayed (click the ellipse at the bottom if it appears)
-* Using your specific browser function, select all HTML code used to render the page.
-* Convert the HTML into UTF-8 or ANSI encoding
-* Replace the variable HTML_CODE_TO_REPLACE with the fresh HTML code
-* Execute the ```backup_studies_as_pgn_files.py``` with no arguments required
+* Create\Modify a config file as ```config.ini``` to include the necessary login credentials leveraging the template as an example.
+* Execute the ```backup_studies_as_pgn_files.py``` with no arguments required.
 
 # Running 
 ## Prerequisites
-This is Python 3 code. Install Python and configure a virtual environment using the provided ```requirements.txt``` file. Try running the ```test.py``` to validate all requirements are met and execution is good to go. 
+This is Python 3 code. Install Python and configure a virtual environment using the provided ```requirements.txt``` file. Have geckodriver available in the path. 
  
 ## Output
 **CONSOLE**
 ```bash
-(1/104): COMPLETED capture for study ac6JRqJk
-(2/104): COMPLETED capture for study JZmdj8VM
+(1/3): Capturing study D0eFd0RV... COMPLETE!
+(2/3): Capturing study aJKP9TlR... COMPLETE!
+(3/3): Capturing study PIO0uVsE... COMPLETE!
 ...
 ```
 
 **./out/manifest.csv**
 ```csv
-0,ac6JRqJk,ac6JRqJk_JomegaStudiesTableofContents.pgn,Jomega Studies Table of Contents
-1,JZmdj8VM,JZmdj8VM_Gamestudy.pgn,Game study
+0,D0eFd0RV,todoperososTestStudy,todoperoso's Test Study
+1,aJKP9TlR,Gamestudy,Game study
+2,PIO0uVsE,FunGame,Fun Game
 ...
 ```
 
@@ -81,7 +79,3 @@ https://lichess.org/study/otqEtXkg }
 
 ...
 ```
-
-# TODO
-
-* Implement Selenium to avoid HTML manual copy hassle
